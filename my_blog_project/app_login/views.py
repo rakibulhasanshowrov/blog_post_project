@@ -91,16 +91,6 @@ def add_pro_pic(request):
             if form.is_valid():
                 img=form.save(commit=False)
                 img.user=request.user
-                # Resize the image
-                image = form.cleaned_data.get('image')
-                pil_image = Image.open(image)
-                pil_image = pil_image.resize((200, 200), Image.ANTIALIAS)
-
-                # Save the resized image to the model
-                buffer = BytesIO()
-                pil_image.save(buffer, format='JPEG')
-                file_object = ContentFile(buffer.getvalue(), name=image.name)
-                img.image.save(image.name, file_object)
                 img.save()
                 return HttpResponseRedirect(reverse('app_login:profile'))
         return render(request,'app_login/add_pro_pic.html',context={'form':form})
@@ -113,16 +103,6 @@ def change_pro_pic(request):
             if form.is_valid():
                 img=form.save(commit=False)
                 img.user=request.user
-                # Resize the image
-                image = form.cleaned_data.get('image')
-                pil_image = Image.open(image)
-                pil_image = pil_image.resize((200, 200), Image.ANTIALIAS)
-
-                # Save the resized image to the model
-                buffer = BytesIO()
-                pil_image.save(buffer, format='JPEG')
-                file_object = ContentFile(buffer.getvalue(), name=image.name)
-                img.image.save(image.name, file_object)
                 img.save()
                 return HttpResponseRedirect(reverse('app_login:profile'))
     
