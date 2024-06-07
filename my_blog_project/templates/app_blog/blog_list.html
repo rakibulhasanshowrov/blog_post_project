@@ -17,6 +17,7 @@ Blog List
             <a href="{% url 'app_blog:blog_details' slug=blog.slug %}" class="btn btn-primary">Read More</a>
         </p>
         <h6>Posted By: <a href="#"> {{blog.author}}</a></h6>
+        <h6>{{blog.liked_blog.count}} Likes | {{blog.blog_comment.count}} Comments</h6>
 
     </div>
 

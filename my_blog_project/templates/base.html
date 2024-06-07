@@ -6,6 +6,8 @@
     <title>{% block title_block %} Blogs {% endblock %}</title>
    <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -20,6 +22,7 @@
                 </a>
                 <div class="dropdown-menu">                   
                     <a class="dropdown-item" href="{% url 'app_blog:create_blog' %}">Write Blog</a>
+                    <a class="dropdown-item" href="{% url 'app_blog:my_blogs' %}">My Blogs</a>
                     <a class="dropdown-item" href="{% url 'app_login:profile' %}">Your Profile</a>
                     <hr>
                     <a href="{% url 'app_login:logout'%}" class="dropdown-item">Logout</a>
